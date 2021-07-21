@@ -265,7 +265,6 @@ function checkGameOver() {
         clearInterval(gTimer);
         gGame.secsPassed = +document.querySelector('.txt-timer').innerText;
         gHighScores.push(gGame.secsPassed);
-        gHighScores.sort();
         var highScoreHTML = getHighScores();
         document.querySelector('.best-scores-list').innerHTML = highScoreHTML;
         document.querySelector('.start-button').innerText = WIN;
@@ -332,6 +331,8 @@ function hideClue(elCell, i, j) {
 }
 
 function getHighScores() {
+    gHighScores.sort();
+    if (gHighScores.length > 5) gHighScores.splice(5);
     var highscoresHTML = '';
     for (var i = 0; i < gHighScores.length; i++) {
         highscoresHTML += '<li>' + gHighScores[i] + '</li>';
