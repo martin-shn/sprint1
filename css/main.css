@@ -1,0 +1,210 @@
+body{
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.page{
+    /* position: sticky; */
+    height: 100vh;
+    width: 100%;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /*text-align: center; */
+}
+
+/* .page::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.5);
+} */
+
+.title h1{
+    font-size: 60px;
+    /* position: sticky; */
+    line-height: 0.9;
+    text-align: center;
+    color: blanchedalmond;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.menu{
+    /* position:sticky; */
+    /* top:130px; */
+    /* left: -390px; */
+    background-color: lightcoral;
+    /* display: inline-block; */
+    margin: auto;
+    width: 375px;
+    height: 78px;
+    border: 5px solid rgb(185, 171, 149);
+    border-top: 5px solid blanchedalmond;
+    border-left: 5px solid blanchedalmond;
+    min-width: 375px;
+}
+.timer{
+    background-color: black;
+    text-align: center;
+    display: inline-block;
+    padding: 5px;
+    margin-left: 8px;
+    margin-bottom: 40px;
+    line-height: 15px;
+    vertical-align: middle;
+    min-width: 35px;
+}
+.timer:first-child{
+    margin-right: 34px;
+}
+.timer:last-child{
+    margin-left: 25px;
+}
+.lbl-timer{
+    font-size: 8px;
+}
+.middle{
+    width: 200px;
+    min-width: 200px;
+    display: inline-block;
+    /* margin-top: 5px; */
+    text-align: center;
+}
+
+.lives{
+    color: red;
+}
+@keyframes blinker {
+    50% {
+        -webkit-text-stroke-width: 1px;
+    }
+}
+.clues-blink{
+    -webkit-text-stroke: red;
+    animation: blinker 0.4s linear infinite;
+}
+.help-div{
+    vertical-align: top;
+    line-height: 18px;
+    min-width: 60px;
+}
+
+.level {
+    margin: 2px;
+    margin-top: 7px;
+}
+.level input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}  
+.level label {
+    display: inline-block;
+    background-color: whitesmoke;
+    color: black;
+    padding: 2px 5px;
+    font-family: sans-serif, Arial;
+    font-size: 12px;
+    border: 1px solid #444;
+    border-radius: 4px;
+}
+  
+.level label:hover {
+    background-color: #dfd;
+}
+.level input[type="radio"]:checked + label {
+    background-color: #bfb;
+    border-color: #4c4;
+}
+.start-button{
+    margin: auto;
+    width: 50px;
+    height: 40px;
+    font-size: 20px;
+    padding: 0;    
+}
+
+.main-table{
+    /* width:375px; */
+    margin: auto;
+}
+.scores{
+    width: 50px;
+    vertical-align: top;
+    font-size: 15px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.7);
+}
+.best-scores-list{
+    list-style-position: outside;
+    padding-left: 0px;
+    margin-left: 20px;
+}
+
+.board{
+    /* position:sticky; */
+    /* top:0px; */
+    /* left: 0px; */
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    border-spacing: 0px;
+    border-collapse:separate;
+    border: 1px solid black;
+    background-color: blanchedalmond;
+}
+td{
+    width: 41px;
+    height: 41px;
+    border: 3px solid darkgray;
+    border-top: 3px solid lightgrey;
+    border-left: 3px solid lightgrey;
+    box-sizing: border-box;
+}
+.empty{
+    box-sizing: border-box;
+    width: 41px;
+    height: 41px;
+    background-color: white;
+    /* border: 3px solid lightgray;
+    border-top: 3px solid darkgrey;
+    border-left: 3px solid darkgrey; */
+    border: 1px solid lightgrey;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+.flag{
+    background-image: url("../img/flag.jpg");
+    background-size: 35px;
+    background-repeat: no-repeat;
+}
+.mine{
+    background-image: url("../img/bwmine.jpg");
+    background-size: 35px;
+    background-repeat: no-repeat;
+}
+.red{
+    background-color: red;
+    background-image: url("../img/mine.jpg");
+    background-size: 35px;
+    background-repeat: no-repeat;
+    /* mix-blend-mode: multiply; */
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    color: rgba(255,255,255,0.5);
+    z-index: -1;
+}
