@@ -77,7 +77,7 @@ function getEmptyCellInBoard(board) {
     var emptyCells = [];
     for (var i = 0; i < board.length; i++) {
         for (var j = 0; j < board[0].length; j++) {
-            if (!board[i][j].isShown) emptyCells.push([i, j]);
+            if (!board[i][j].isShown && !board[i][j].isMarked && !board[i][j].isMine) emptyCells.push([i, j]);
         }
     }
     return emptyCells;
@@ -124,4 +124,16 @@ function pad(num, size) {
     num = num.toString();
     while (num.length < size) num = "0" + num;
     return num;
+}
+
+function cloneMat(mat) {
+    var newMat = [];
+    for (var i = 0; i < mat.length; i++) {
+        newMat[i] = [];
+        for (var j = 0; j < mat[0].length; j++) {
+            newMat[i][j] = {};
+            Object.assign(newMat[i][j], mat[i][j]);
+        }
+    }
+    return newMat;
 }
