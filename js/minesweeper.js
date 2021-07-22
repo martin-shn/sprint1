@@ -29,7 +29,7 @@ var gGame = {
     markedCount: 0, //markedCount: How many cells are marked (with a flag)
     secsPassed: 0, //secsPassed: How many seconds passed
     level: 1,
-    safeClicks: 0
+    safeClicks: 3
 };
 
 var gUndo;
@@ -68,7 +68,7 @@ function initGame() {
     gGame.shownCount = 0;
     gGame.markedCount = 0;
     gGame.secsPassed = 0;
-    gGame.safeClicks = 0;
+    gGame.safeClicks = 3;
 
 
     gMines = [];
@@ -183,6 +183,7 @@ function cellClicked(elCell, i, j) {
     //update globals
     // gGame.shownCount = 0;
     gGame.markedCount = countFlags();
+    document.querySelector('.undo').innerText = `UNDO\n${gUndo.length - 1}`;
 
 
     if (gBoard[i][j].isMine) {
@@ -380,11 +381,12 @@ function undo(elBtn) {
     renderBoard(gBoard);
     gGame.markedCount = countFlags();
     document.querySelector('.flags').innerText = countFlags();
+    elBtn.innerText = `UNDO\n${gUndo.length - 1}`;
 
 }
 
 function safeclick(elBtn) {
-    if (!gGame.isOn || isFirstPress || gGame.safeClicks >= 3) return;
+    if (!gGame.isOn || isFirstPress || gGame.safeClicks <= 0) return;
     elBtn.classList.add('btn-blinker');
     setTimeout(function () {
         elBtn.classList.remove('btn-blinker');
@@ -394,7 +396,8 @@ function safeclick(elBtn) {
     if (emptyCells.length === 0) return;
     var idx = getRandomCell(emptyCells);
     document.querySelector(`.cell${idx[0]}-${idx[1]}`).classList.toggle('safe-clicked');
-    gGame.safeClicks++;
+    gGame.safeClicks--;
+    elBtn.innerText = `SAFE CLICK\n${gGame.safeClicks} Left`;
     setTimeout(() => {
         document.querySelector(`.cell${idx[0]}-${idx[1]}`).classList.toggle('safe-clicked');
     }, 1000);
