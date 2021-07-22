@@ -17,10 +17,12 @@
         </div>
 
         <div class="menu">
-            <div class="timer"><label class="lbl-timer">Flags left<br></label><label class="flags counter">000</label></div>
+            <div class="timer"><label class="lbl-timer">Flags left<br></label><label class="flags counter">000</label>
+            </div>
             <div class="middle">
                 <div class="help-div" style="display: inline-block;">
-                    <label class="lbl-timer">Lives<br></label><div class="lives"></div>
+                    <label class="lbl-timer">Lives<br></label>
+                    <div class="lives"></div>
                 </div>
                 <button onclick="initGame()" class="start-button">😀</button>
                 <div class="help-div" style="display: inline-block;">
@@ -43,10 +45,15 @@
 
         <table class="main-table">
             <tr>
-                <td style="width:95px;border:0;">
+                <td class="scores" style="width:95px;">
+                    <button id="create" onclick="createManualMap()">Create Map</button>
+                    <button id="play" style="visibility: hidden;" onclick="playManualMap()">Play Saved Map</button>
+                    <button id="delete" style="visibility: hidden;" onclick="deleteMap()">Delete Saved Map</button>
+                    <button id="save" style="visibility: hidden;" onclick="saveMap(this)">Save This Map</button>
+                    <button id="cancel" style="visibility: hidden;" onclick="cancelMap()">Discard This Map</button>
+
                 </td>
                 <td style="width:500px;border-width:0px">
-                <!-- <td style="border-width:0px"> -->
                     <div>
                         <table class="board">
                             <tbody>
@@ -67,6 +74,7 @@
     <footer>CoffeeRight &copy; Martin Shniedmeser</footer>
     <script src="js/utils.js"></script>
     <script src="js/minesweeper.js"></script>
+    <script src="js/minesweeper-manual.js"></script>
 </body>
 
 </html>

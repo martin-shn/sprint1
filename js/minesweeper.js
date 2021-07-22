@@ -289,8 +289,9 @@ function checkGameOver() {
         for (var i = 0; i < gLevel.SIZE; i++) {
             for (var j = 0; j < gLevel.SIZE; j++) {
                 var elCell = document.querySelector(`.cell${i}-${j}`);
-                if ((gBoard[i][j].isMarked && !gBoard[i][j].isShown && !gBoard[i][j].isMine) ||
-                    (!gBoard[i][j].isMarked && !gBoard[i][j].isShown && !gBoard[i][j].isMine)) {
+                if ((gBoard[i][j].isMarked && !gBoard[i][j].isShown && !gBoard[i][j].isMine) || //empty flag
+                    (!gBoard[i][j].isMarked && !gBoard[i][j].isShown && !gBoard[i][j].isMine) || //unrevealed tile
+                    (!gBoard[i][j].isMarked && !gBoard[i][j].isShown && gBoard[i][j].isMine)) { //unrevealed bomb
                     return;
                 }
             }
