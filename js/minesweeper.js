@@ -84,6 +84,8 @@ function initGame() {
     document.querySelector('.flags').innerText = '000';
     clearInterval(gTimer);
     document.querySelector('.txt-timer').innerText = '000';
+    document.querySelector('.undo').innerText = `UNDO\n${gUndo.length - 1}`;
+    document.querySelector('.safe-click').innerText = `SAFE CLICK\n${gGame.safeClicks} Left`;
     gTimer = setInterval(timer, 1000);
 }
 
