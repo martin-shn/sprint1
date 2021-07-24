@@ -7,20 +7,15 @@ body {
     background-size: cover;
 }
 
-.page {
-    height: 100%;
-    width: 100%;
-}
-
 .title h1 {
-    font-size: 60px;
+    font-size: 20px;
     line-height: 0.9;
     text-align: center;
     color: blanchedalmond;
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: 1px;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .menu {
@@ -213,11 +208,15 @@ body {
 }
 
 .main-table {
+    height: 410px;
+    max-height: 410px;
     margin: auto;
 }
 
 .scores {
-    width: 50px;
+    width: 95px;
+    height: 410px;
+    max-height: 410px;
     vertical-align: top;
     font-size: 15px;
     padding: 10px;
@@ -233,8 +232,8 @@ body {
 .board {
     box-sizing: border-box;
     margin: auto;
-    margin-top: 10px;
-    margin-bottom: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     border-spacing: 0px;
     border-collapse: separate;
     border: 1px solid black;
@@ -242,10 +241,10 @@ body {
 }
 
 td {
-    width: 41px;
-    height: 41px;
-    min-width: 41px;
-    min-height: 41px;
+    width: 33px;
+    height: 33px;
+    min-width: 33px;
+    min-height: 33px;
     border: 3px solid darkgray;
     border-top: 3px solid lightgrey;
     border-left: 3px solid lightgrey;
@@ -258,8 +257,8 @@ td {
 
 .empty {
     box-sizing: border-box;
-    width: 41px;
-    height: 41px;
+    width: 33px;
+    height: 33px;
     background-color: white;
     border: 1px solid lightgrey;
     color: black;
@@ -269,20 +268,20 @@ td {
 
 .flag {
     background-image: url('../img/flag.jpg');
-    background-size: 35px;
+    background-size: 27px;
     background-repeat: no-repeat;
 }
 
 .mine {
     background-image: url('../img/bwmine.jpg');
-    background-size: 35px;
+    background-size: 27px;
     background-repeat: no-repeat;
 }
 
 .red {
     background-color: red;
     background-image: url('../img/mine.jpg');
-    background-size: 35px;
+    background-size: 27px;
     background-repeat: no-repeat;
 }
 
