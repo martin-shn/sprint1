@@ -41,29 +41,15 @@ var isClue = false;
 var gStep;
 
 function initGame() {
-    switch (+parseSelector('input[name="level"]:checked').value) {
-        case 1:
-            gLevel.SIZE = 4;
-            gLevel.MINES = 2;
-            gLevel.LIVES = 1;
-            gLevel.CLUES = 2;
-            gGame.level = 1;
-            break;
-        case 2:
-            gLevel.SIZE = 8;
-            gLevel.MINES = 12;
-            gLevel.LIVES = 3;
-            gLevel.CLUES = 3;
-            gGame.level = 2;
-            break;
-        case 3:
-            gLevel.SIZE = 12;
-            gLevel.MINES = 30;
-            gLevel.LIVES = 3;
-            gLevel.CLUES = 3;
-            gGame.level = 3;
-            break;
+    if (
+        parseSelector(`#save`).style.visibility === 'visible' &&
+        parseSelector(`#cancel`).style.visibility === 'visible'
+    ) {
+        hideBtn('save');
+        hideBtn('cancel');
+        showBtn('create');
     }
+    setLevelVars();
     gUndo = [];
     gGame.isOn = true;
     gGame.shownCount = 0;
@@ -87,6 +73,32 @@ function initGame() {
     UNDO.innerText = `UNDO\n${gUndo.length - 1}`;
     SAFECLICK.innerText = `SAFE CLICK\n${gGame.safeClicks} Left`;
     gTimer = setInterval(timer, 1000);
+}
+
+function setLevelVars() {
+    switch (+parseSelector('input[name="level"]:checked').value) {
+        case 1:
+            gLevel.SIZE = 4;
+            gLevel.MINES = 2;
+            gLevel.LIVES = 1;
+            gLevel.CLUES = 2;
+            gGame.level = 1;
+            break;
+        case 2:
+            gLevel.SIZE = 8;
+            gLevel.MINES = 12;
+            gLevel.LIVES = 3;
+            gLevel.CLUES = 3;
+            gGame.level = 2;
+            break;
+        case 3:
+            gLevel.SIZE = 12;
+            gLevel.MINES = 30;
+            gLevel.LIVES = 3;
+            gLevel.CLUES = 3;
+            gGame.level = 3;
+            break;
+    }
 }
 
 function buildBoard() {

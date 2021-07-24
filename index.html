@@ -34,16 +34,28 @@
                 </div>
 
                 <div class="level">
-                    <input type="radio" id="level1" name="level" value="1" checked /><label
-                        for="level1"
-                        >Easy</label
-                    >
-                    <input type="radio" id="level2" name="level" value="2" /><label for="level2"
-                        >Medium</label
-                    >
-                    <input type="radio" id="level3" name="level" value="3" /><label for="level3"
-                        >Hard</label
-                    >
+                    <input
+                        type="radio"
+                        id="level1"
+                        name="level"
+                        value="1"
+                        checked
+                        onclick="initGame()"
+                    /><label for="level1">Easy</label>
+                    <input
+                        type="radio"
+                        id="level2"
+                        name="level"
+                        value="2"
+                        onclick="initGame()"
+                    /><label for="level2">Medium</label>
+                    <input
+                        type="radio"
+                        id="level3"
+                        name="level"
+                        value="3"
+                        onclick="initGame()"
+                    /><label for="level3">Hard</label>
                 </div>
             </div>
 
@@ -76,7 +88,7 @@
                     </button>
                 </td>
 
-                <td style="width: 500px; border-width: 0px">
+                <td class="center-cell" style="width: 500px; border-width: 3px">
                     <div>
                         <table class="board">
                             <tbody></tbody>

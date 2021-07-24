@@ -104,6 +104,25 @@ function cancelMap() {
 }
 
 function playManualMap() {
+    //clear the current map
+    gManualMap = [];
+    for (var i = 0; i < gLevel.SIZE; i++) {
+        gManualMap[i] = [];
+        for (var j = 0; j < gLevel.SIZE; j++) {
+            gManualMap[i][j] = {
+                minesAroundCount: 0,
+                isShown: false,
+                isMine: false,
+                isMarked: false,
+                isHinted: false,
+            };
+        }
+    }
+    for (var i = 0; i < gManualMines.length; i++) {
+        var x = gManualMines[i][0];
+        var y = gManualMines[i][1];
+        gManualMap[x][y].isMine = true;
+    }
     gBoard = [];
     gMines = [];
     gBoard = cloneMat(gManualMap);
@@ -113,6 +132,7 @@ function playManualMap() {
     gGame.markedCount = 0;
     gGame.secsPassed = 0;
     gGame.safeClicks = 3;
+    setLevelVars();
 
     setMines(gBoard, gMines);
     setMinesNegsCount(gBoard);

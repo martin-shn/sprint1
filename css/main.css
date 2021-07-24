@@ -208,22 +208,44 @@ body {
 }
 
 .main-table {
+    background-color: rgba(0, 0, 0, 0.7);
     height: 410px;
     max-height: 410px;
     margin: auto;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    border: 3px solid blanchedalmond;
+}
+
+.center-cell {
+    width: 450px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    vertical-align: top;
+    box-sizing: content-box;
 }
 
 .scores {
+    text-align: center;
     width: 95px;
+    min-width: 95px;
     height: 410px;
     max-height: 410px;
     vertical-align: top;
     font-size: 15px;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 3px solid blanchedalmond;
+}
+
+.scores button {
+    height: 50px;
 }
 
 .best-scores-list {
+    height: 110px;
+    text-align: left;
     list-style-position: outside;
     padding-left: 0px;
     margin-left: 20px;
@@ -240,7 +262,7 @@ body {
     background-color: blanchedalmond;
 }
 
-td {
+.board td {
     width: 33px;
     height: 33px;
     min-width: 33px;
@@ -257,8 +279,10 @@ td {
 
 .empty {
     box-sizing: border-box;
-    width: 33px;
-    height: 33px;
+    width: 27px;
+    min-width: 27px;
+    height: 27px;
+    min-height: 27px;
     background-color: white;
     border: 1px solid lightgrey;
     color: black;
