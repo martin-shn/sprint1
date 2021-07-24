@@ -1,80 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" href="img/favicon.jpg" />
+        <link rel="stylesheet" href="css/main.css" />
+        <title>Mine Sweeper</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="img/favicon.jpg" />
-    <link rel="stylesheet" href="css/main.css">
-    <title>Mine Sweeper</title>
-</head>
-
-<body onload="initGame()">
-    <div class="page">
-        <div class="title">
-            <h1>Mine Sweeper</h1>
-        </div>
-
-        <div class="menu">
-            <div class="timer"><label class="lbl-timer">Flags left<br></label><label class="flags counter">000</label>
+    <body onload="initGame()">
+        <div class="page">
+            <div class="title">
+                <h1>Mine Sweeper</h1>
             </div>
-            <div class="middle">
-                <div class="help-div" style="display: inline-block;">
-                    <label class="lbl-timer">Lives<br></label>
-                    <div class="lives"></div>
-                </div>
-                <button onclick="initGame()" class="start-button">😀</button>
-                <div class="help-div" style="display: inline-block;">
-                    <label class="lbl-timer">Clues<br></label><label class="clues" onclick="useClue()"></label>
-                </div>
-                <div class="level">
-                    <input type="radio" id="level1" name="level" value=1 checked><label for="level1">Easy</label>
-                    <input type="radio" id="level2" name="level" value=2><label for="level2">Medium</label>
-                    <input type="radio" id="level3" name="level" value=3><label for="level3">Hard</label>
-                </div>
-            </div>
-            <div class="timer"><label class="lbl-timer">Timer<br></label>
-                <label class="txt-timer counter">000</label>
-            </div>
-        </div>
-        <div class="sub-menu">
-            <button class="btn undo" onclick="undo(this)">UNDO<br>0</button>
-            <button class="btn safe-click" onclick="safeclick(this)">SAFE CLICK<br>3 Left</button>
-        </div>
 
-        <table class="main-table">
-            <tr>
-                <td class="scores" style="width:95px;">
-                    <button id="create" onclick="createManualMap()">Create Map</button>
-                    <button id="play" style="visibility: hidden;" onclick="playManualMap()">Play Saved Map</button>
-                    <button id="delete" style="visibility: hidden;" onclick="deleteMap()">Delete Saved Map</button>
-                    <button id="save" style="visibility: hidden;" onclick="saveMap(this)">Save This Map</button>
-                    <button id="cancel" style="visibility: hidden;" onclick="cancelMap()">Discard This Map</button>
+            <div class="menu">
+                <div class="timer">
+                    <label class="lbl-timer">Flags left<br /></label
+                    ><label class="flags counter">000</label>
+                </div>
 
-                </td>
-                <td style="width:500px;border-width:0px">
-                    <div>
-                        <table class="board">
-                            <tbody>
-                            </tbody>
-                        </table>
+                <div class="middle">
+                    <div class="help-div" style="display: inline-block">
+                        <label class="lbl-timer">Lives<br /></label>
+                        <div class="lives"></div>
                     </div>
-                </td>
-                <td class="scores">BEST SCORES:
-                    <ol class="best-scores-list">
 
-                    </ol>
-                    <button style="width:100%;" onclick="clearHighScores()">Clear Scores</button>
-                </td>
-            </tr>
-        </table>
-    </div>
+                    <button onclick="initGame()" class="start-button"></button>
 
-    <footer>CoffeeRight &copy; Martin Shniedmeser</footer>
-    <script src="js/utils.js"></script>
-    <script src="js/minesweeper.js"></script>
-    <script src="js/minesweeper-manual.js"></script>
-</body>
+                    <div class="help-div" style="display: inline-block">
+                        <label class="lbl-timer">Clues<br /></label
+                        ><label class="clues" onclick="useClue()"></label>
+                    </div>
 
+                    <div class="level">
+                        <input type="radio" id="level1" name="level" value="1" checked /><label
+                            for="level1"
+                            >Easy</label
+                        >
+                        <input type="radio" id="level2" name="level" value="2" /><label for="level2"
+                            >Medium</label
+                        >
+                        <input type="radio" id="level3" name="level" value="3" /><label for="level3"
+                            >Hard</label
+                        >
+                    </div>
+                </div>
+
+                <div class="timer">
+                    <label class="lbl-timer">Timer<br /></label>
+                    <label class="txt-timer counter">000</label>
+                </div>
+            </div>
+
+            <div class="sub-menu">
+                <button class="btn undo" onclick="undo(this)">UNDO<br />0</button>
+                <button class="btn safe-click" onclick="safeclick(this)">
+                    SAFE CLICK<br />3 Left
+                </button>
+            </div>
+
+            <table class="main-table">
+                <tr>
+                    <td class="scores" style="width: 95px">
+                        <button id="create" onclick="createManualMap()">Create Map</button>
+                        <button id="play" style="visibility: hidden" onclick="playManualMap()">
+                            Play Saved Map
+                        </button>
+                        <button id="delete" style="visibility: hidden" onclick="deleteMap()">
+                            Delete Saved Map
+                        </button>
+                        <button id="save" style="visibility: hidden" onclick="saveMap(this)">
+                            Save This Map
+                        </button>
+                        <button id="cancel" style="visibility: hidden" onclick="cancelMap()">
+                            Discard This Map
+                        </button>
+                    </td>
+
+                    <td style="width: 500px; border-width: 0px">
+                        <div>
+                            <table class="board">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </td>
+
+                    <td class="scores">
+                        BEST SCORES:
+                        <ol class="best-scores-list"></ol>
+                        <button style="width: 100%" onclick="clearHighScores()">
+                            Clear Scores
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <footer>CoffeeRight &copy; Martin Shniedmeser</footer>
+        <script src="js/utils.js"></script>
+        <script src="js/minesweeper-manual.js"></script>
+        <script src="js/minesweeper.js"></script>
+    </body>
 </html>

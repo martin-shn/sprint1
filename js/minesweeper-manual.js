@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 var gManualMap;
 var gManualMines;
 
@@ -14,12 +14,12 @@ function createManualMap() {
                 isShown: false,
                 isMine: false,
                 isMarked: false,
-                isHinted: false
-            }
+                isHinted: false,
+            };
         }
     }
     //render the empty map on screen
-    document.querySelector('.board').innerHTML = getMatHTML(gManualMap);
+    parseSelector('.board').innerHTML = getMatHTML(gManualMap);
 
     //remove create map button and show save map
     hideBtn('create');
@@ -30,10 +30,11 @@ function createManualMap() {
 }
 
 function hideBtn(id) {
-    document.querySelector(`#${id}`).style.visibility = 'hidden';
+    parseSelector(`#${id}`).style.visibility = 'hidden';
 }
+
 function showBtn(id) {
-    document.querySelector(`#${id}`).style.visibility = 'visible';
+    parseSelector(`#${id}`).style.visibility = 'visible';
 }
 
 function getElementHTML(i, j) {
@@ -45,12 +46,11 @@ function getMatHTML(mat) {
     for (var i = 0; i < mat.length; i++) {
         strHTML += '<tr>';
         for (var j = 0; j < mat[0].length; j++) {
-            // var cell = mat[i][j];
             var cell = ' ';
             var className = 'cell cell' + i + '-' + j;
-            strHTML += `<td class="${className}" onclick="addMine(this,${i},${j})">${cell}</td>`
+            strHTML += `<td class="${className}" onclick="addMine(this,${i},${j})">${cell}</td>`;
         }
-        strHTML += '</tr>'
+        strHTML += '</tr>';
     }
     strHTML += '</tbody>';
     return strHTML;
@@ -85,7 +85,7 @@ function saveMap(elBtn) {
 function deleteMap() {
     gManualMines = [];
     gManualMap = [];
-    document.querySelector(`#save`).innerText = 'Save This Map';
+    parseSelector(`#save`).innerText = 'Save This Map';
     showBtn('create');
     hideBtn('play');
     hideBtn('delete');
@@ -117,17 +117,16 @@ function playManualMap() {
     setMines(gBoard, gMines);
     setMinesNegsCount(gBoard);
 
-
     isFirstPress = false;
     renderBoard(gBoard);
     gUndo.push(cloneMat(gBoard));
-    document.querySelector('.start-button').innerText = STARTBUTTON;
-    document.querySelector('.lives').innerText = LIVE.repeat(gLevel.LIVES);
-    document.querySelector('.clues').innerText = CLUE.repeat(gLevel.CLUES);
-    document.querySelector('.best-scores-list').innerHTML = saveHightScore(true);
-    document.querySelector('.flags').innerText = '000';
+    STARTBUTTON.innerText = STARTBUTTONICON;
+    LIVES.innerText = LIVE.repeat(gLevel.LIVES);
+    CLUES.innerText = CLUE.repeat(gLevel.CLUES);
+    SCORESLIST.innerHTML = saveHightScore(true);
+    FLAGS.innerText = '000';
     clearInterval(gTimer);
-    document.querySelector('.txt-timer').innerText = '000';
+    TXTTIMER.innerText = '000';
     gTimer = setInterval(timer, 1000);
 
     hideBtn('create');
@@ -135,5 +134,4 @@ function playManualMap() {
     showBtn('delete');
     hideBtn('save');
     hideBtn('cancel');
-
 }
