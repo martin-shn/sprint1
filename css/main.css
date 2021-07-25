@@ -275,6 +275,7 @@ body {
 
 .safe-clicked {
     border: 2px solid blue;
+    background-color: blue;
 }
 
 .empty {
